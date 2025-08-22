@@ -1,0 +1,19 @@
+.headerContainer {
+    height: 6rem;
+    width: 100%;
+    background: var(--background-header);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.contentContainer {
+    width: 70%;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
