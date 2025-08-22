@@ -19,3 +19,5 @@ Além disso, o app conta com uma **mini animação dinâmica** que reage ao tipo
 - Ajuste automático para o fuso horário da cidade pesquisada
 - Mini animação que se adapta ao clima (sol, nuvens, chuva, noite)
 
+## Acesso
+https://clima-app-gf9l.vercel.app/
