@@ -1,8 +1,6 @@
 'use client'
 import { createContext, useContext, useState } from "react"
 
-const WeatherContext = createContext<any>(null);
-
 type WeatherData = {
     weather?: { main: string; icon: string }[];
     main?: { temp: number; feels_like: number; temp_min: number; temp_max: number };
@@ -12,6 +10,15 @@ type WeatherData = {
     dt?: number;
     timezone?: number;
 };
+
+type WeatherContextType = {
+    weatherData: WeatherData | null;
+    setWeatherData: React.Dispatch<React.SetStateAction<WeatherData | null>>;
+}
+
+const WeatherContext = createContext<WeatherContextType | null>(null);
+
+
 
 export const WeatherProvider = ({ children }: { children: React.ReactNode }) => {
     const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
@@ -23,4 +30,8 @@ export const WeatherProvider = ({ children }: { children: React.ReactNode }) => 
     )
 }
 
-export const useWeather = () => useContext(WeatherContext);
+export const useWeather = () => {
+    const context = useContext(WeatherContext);
+    if (!context) throw new Error("useWeather must be used within a WeatherProvider");
+    return context;
+};
